@@ -22,7 +22,7 @@ Right now reserve stays as reserved forever, meaning it won't get checked out. T
 
 **What is left to finish the MVP?**
 
-Catching a NoSuchElementException properly. Writing the null and empty queue cases properly. Additionally, adding book title lookup option since we originally planned to in the mVP. Splitting files into the model, view, and controller packages so they are kept separate and not all together in one file.
+Catching a NoSuchElementException properly. Writing the null and empty queue cases properly. Additionally, adding book title lookup option since we originally planned to in the MVP. Splitting files into the model, view, and controller packages so they are kept separate and not all together in one file.
 
 **Your change feature**
 
@@ -34,7 +34,7 @@ A stretch goal we would attempt is a VIP pass that allows the user to go to the 
 
 **What new tests will you need?**
 
-So far, there are no new tests we need. This might change as we continue developing our code and any of the new functions we add to fulfill stretch goals.
+So far, we need tests for the Waitlist class, Library class, and the controller. This might change as we continue developing our code and any of the new functions we add to fulfill stretch goals. 
 
 **Who does what?**
 
