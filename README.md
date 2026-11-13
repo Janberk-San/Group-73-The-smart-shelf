@@ -55,7 +55,7 @@ Each team will continue working on the parts originally planned in the spec, whe
 
 | `User.java` | Janberk | wrote|
 
-| `Book.java` | Janberk| wrote |
+| `Book.java` | Blake| wrote |
 
 | `All test files` | Blake | wrote |
 
