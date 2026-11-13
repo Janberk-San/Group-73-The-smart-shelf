@@ -45,7 +45,7 @@ public class LibraryView implements LibraryListener
     @Override
     public void bookChanged(int bookId, BookStatus status, String message) 
     {
-        System.out.println(message);
+        System.out.println(message); 
     }
 
 } // this is the end of liubary view

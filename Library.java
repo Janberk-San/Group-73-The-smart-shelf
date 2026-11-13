@@ -103,7 +103,7 @@ public class Library {
         if (book.getStatus() != BookStatus.AVAILABLE) {
             throw new BookUnavailableException("\"" + book.getTitle() + "\" can't be reserved right now.");
         }
-        user.addBook(bookId);
+        user.addBook(bookId);  
         book.setStatus(BookStatus.RESERVED);
         book.setReservedForId(userId);
         notifyListeners(book, "\"" + book.getTitle() + "\" reserved for " + user.getName() + ".");
