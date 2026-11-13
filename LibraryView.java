@@ -48,4 +48,4 @@ public class LibraryView implements LibraryListener
         System.out.println(message); 
     }
 
-} // this is the end of liubary view
+} // this is the end of library view
