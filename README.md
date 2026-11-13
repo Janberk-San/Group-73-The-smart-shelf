@@ -52,8 +52,6 @@ Each team will continue working on the parts originally planned in the spec, whe
 | `LibraryView.java` | Abigel | wrote|
 
 | `Waitlist.java` | Abigel| wrote |
-<<<<<<< HEAD
-=======
 
 | `User.java` | Janberk | wrote|
 
