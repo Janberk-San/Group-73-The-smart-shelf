@@ -1,5 +1,9 @@
 # Group-73-The-smart-shelf
 
+## Steps to run program
+
+java Main, first prompts user for intended option, including borrowing a book, returning a book, reserving, listing all books in library and main functions of program. Borrowing book will take the book from the library, making it unavailable, return will make the book available, reserve will add the user to the waitlist. Books can also be listed by it. These options are made by the user using number keys. When the user is done with the program, they will press 7 to quit. 
+
 ## Reflection
 
 **What changed from your specification?**
