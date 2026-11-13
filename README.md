@@ -6,7 +6,7 @@
 
 returnBook changed because instead of returning bookID and userID like the spec said, it now returns bookID because the borrower is stored on the book.
 
-**Did the model really stand alone?**
+**Did the model really stand alone?** 
 
 Yes, the model does stand alone because it does not have any scanner or input systems for it. 
 
@@ -52,3 +52,14 @@ Each team will continue working on the parts originally planned in the spec, whe
 | `LibraryView.java` | Abigel | wrote|
 
 | `Waitlist.java` | Abigel| wrote |
+<<<<<<< HEAD
+=======
+
+| `User.java` | Janberk | wrote|
+
+| `Book.java` | Janberk| wrote |
+
+| `All test files` | Blake | wrote |
+
+GenAI Note: We used it as a co-teammate and asking it for more efficient ways to approach different parts of the MVC. We also used it to help out on the displyaMenu method of the library controller to make it efficient.
+>>>>>>> 505fef5 (edited attribution table)
