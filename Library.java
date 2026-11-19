@@ -24,6 +24,9 @@ public class Library {
     }
 
     public void addUser(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User cannot be null");
+        }
         if (users.containsKey(user.getId())) {
             throw new IllegalArgumentException("Duplicate user ID: " + user.getId());
         }

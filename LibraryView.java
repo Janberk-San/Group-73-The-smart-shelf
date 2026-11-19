@@ -11,8 +11,9 @@ public class LibraryView implements LibraryListener
         System.out.println("1. Borrow a book");
         System.out.println("2. Return a book");
         System.out.println("3. Reserve a book");
-        System.out.println("4. View a book");
-        System.out.println("5. Quit");
+        System.out.println("4. Add a user");
+        System.out.println("5. View a book");
+        System.out.println("6. Quit");
     }
 
     public int getMenuChoice() 
@@ -31,6 +32,22 @@ public class LibraryView implements LibraryListener
     {
         System.out.print("User ID: ");
         return Integer.parseInt(scanner.nextLine().trim());
+    }
+
+    public String getUserName()
+    {
+        System.out.print("User name: ");
+        return scanner.nextLine().trim();
+    }
+
+    public boolean getVipStatus()
+    {
+        System.out.print("VIP user (true/false): ");
+        String value = scanner.nextLine().trim();
+        if (!value.equalsIgnoreCase("true") && !value.equalsIgnoreCase("false")) {
+            throw new NumberFormatException("VIP status must be true or false.");
+        }
+        return Boolean.parseBoolean(value);
     }
 
     public void displayMessage(String message) {

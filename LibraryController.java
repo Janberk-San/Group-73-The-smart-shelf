@@ -30,18 +30,37 @@ public class LibraryController
                         handleReserve(view.getUserId(), view.getBookId());
                         break;
                     case 4:
-                        handleView(view.getBookId());
+                        handleAddUser(
+                                view.getUserName(),
+                                view.getUserId(),
+                                view.getVipStatus());
                         break;
                     case 5:
+                        handleView(view.getBookId());
+                        break;
+                    case 6:
                         running = false;
                         break;
                     default:
-                        view.displayMessage("Please enter a number from 1 to 5.");
+                        view.displayMessage("Please enter a number from 1 to 6.");
                 }
             } catch (NumberFormatException e) 
             {
-                view.displayMessage("Please enter a number from 1 to 5 for the ID.");
+                view.displayMessage("Please enter a valid number.");
             }
+        }
+    }
+
+    public void handleAddUser(String name, int userId, boolean vip) {
+        try {
+            library.addUser(new User(
+                    name,
+                    userId,
+                    vip,
+                    library.getInventorySize()));
+            view.displayMessage("Added user " + name + " with ID " + userId + ".");
+        } catch (IllegalArgumentException e) {
+            view.displayMessage(e.getMessage());
         }
     }
 
