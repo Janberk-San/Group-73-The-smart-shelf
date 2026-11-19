@@ -9,6 +9,7 @@ Run `javac Main.java` then `java Main` to open the menu. It allows users to borr
 In VS Code:
 
 javac -cp junit-platform-console-standalone.jar *.java
+
 java -jar junit-platform-console-standalone.jar --class-path . --scan-class-path
 
 ## Reflection
