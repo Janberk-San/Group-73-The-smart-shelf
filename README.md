@@ -4,9 +4,14 @@
 
 Run `javac Main.java` then `java Main` to open the menu. It allows users to borrow or return books, reserve books, add new users, and view a book. It also allows the user to select if they are a VIP or not. Use number keys to choose an option, and choose 6 to quit. To add a user, enter a name, unique numeric ID, and whether the user is VIP (`true` or `false`).
 
-## Reflection
+## Steps to running the tests
 
-**Running tests**
+In VS Code:
+
+javac -cp junit-platform-console-standalone.jar *.java
+java -jar junit-platform-console-standalone.jar --class-path . --scan-class-path
+
+## Reflection
 
 **How did your design absorb the change?**
 

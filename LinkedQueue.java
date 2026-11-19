@@ -53,4 +53,27 @@ public class LinkedQueue<T> {
     public int size() {
         return size;
     }
+
+    public boolean remove(T item) {
+        if (item == null || isEmpty()) {
+            return false;
+        }
+
+        LinkedQueue<T> remaining = new LinkedQueue<>();
+        boolean removed = false;
+
+        while (!isEmpty()) {
+            T current = dequeue();
+            if (!removed && item.equals(current)) {
+                removed = true;
+            } else {
+                remaining.enqueue(current);
+            }
+        }
+
+        while (!remaining.isEmpty()) {
+            enqueue(remaining.dequeue());
+        }
+        return removed;
+    }
 }

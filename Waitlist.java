@@ -31,4 +31,40 @@ public class Waitlist
     public boolean isEmpty() {
         return vipQueue.isEmpty() && regularQueue.isEmpty();
     }
+
+    public int size() {
+        return vipQueue.size() + regularQueue.size();
+    }
+
+    public boolean removeUser(int userId) {
+        LinkedQueue<User> remainingVip = new LinkedQueue<>();
+        LinkedQueue<User> remainingRegular = new LinkedQueue<>();
+        boolean removed = removeMatching(vipQueue, remainingVip, userId);
+        removed = removeMatching(regularQueue, remainingRegular, userId) || removed;
+        restore(vipQueue, remainingVip);
+        restore(regularQueue, remainingRegular);
+        return removed;
+    }
+
+    private boolean removeMatching(LinkedQueue<User> source,
+                                   LinkedQueue<User> remaining,
+                                   int userId) {
+        boolean removed = false;
+        while (!source.isEmpty()) {
+            User user = source.dequeue();
+            if (!removed && user.getId() == userId) {
+                removed = true;
+            } else {
+                remaining.enqueue(user);
+            }
+        }
+        return removed;
+    }
+
+    private void restore(LinkedQueue<User> destination,
+                         LinkedQueue<User> remaining) {
+        while (!remaining.isEmpty()) {
+            destination.enqueue(remaining.dequeue());
+        }
+    }
 }

@@ -112,6 +112,52 @@ public class Library {
         notifyListeners(book, "\"" + book.getTitle() + "\" reserved for " + user.getName() + ".");
     }
 
+    public void cancelReservation(int bookId, int userId)
+            throws BookNotFoundException, UserNotFoundException,
+                   BookUnavailableException {
+        Book book = findBook(bookId);
+        User user = findUser(userId);
+
+        if (book.getStatus() != BookStatus.RESERVED
+                || book.getReservedForId() != userId) {
+            throw new BookUnavailableException(
+                    "\"" + book.getTitle() + "\" is not reserved for " + user.getName() + ".");
+        }
+
+        user.removeBook(bookId);
+        book.setStatus(BookStatus.AVAILABLE);
+        book.setReservedForId(-1);
+        notifyListeners(book, user.getName() + " canceled the reservation for \"" + book.getTitle() + "\".");
+    }
+
+    public void cancelWaitlist(int bookId, int userId)
+            throws BookNotFoundException, UserNotFoundException {
+        Book book = findBook(bookId);
+        User user = findUser(userId);
+
+        if (!book.getWaitlist().removeUser(userId)) {
+            throw new UserNotFoundException(
+                    user.getName() + " is not on the waitlist for \"" + book.getTitle() + "\".");
+        }
+        user.removeBook(bookId);
+        notifyListeners(book, user.getName() + " left the waitlist for \"" + book.getTitle() + "\".");
+    }
+
+    public List<Book> findBooksByTitle(String partialTitle) {
+        List<Book> matches = new ArrayList<>();
+        if (partialTitle == null || partialTitle.trim().isEmpty()) {
+            return matches;
+        }
+
+        String query = partialTitle.trim().toLowerCase();
+        for (Book book : books.values()) {
+            if (book.getTitle().toLowerCase().contains(query)) {
+                matches.add(book);
+            }
+        }
+        return matches;
+    }
+
     public void returnBook(int bookId) throws BookNotFoundException, BookNotCheckedOutException {
         Book book = findBook(bookId);
         if (book.getStatus() != BookStatus.CHECKED_OUT) 

@@ -76,3 +76,4 @@ public class LibraryTest {
 
     @Test(expected = BookNotCheckedOutException.class)
     public void cannotReturnAvailableBook() throws Exception { library.returnBook(100); }
+}
