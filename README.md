@@ -8,40 +8,31 @@ Run `javac Main.java` then `java Main` to open the menu. It allows users to borr
 
 **Running tests**
 
+**How did your design absorb the change?**
 
-**What changed from your specification?**
+we had to make edits to the array bag, controller, view, and main in order to add the full functionality of the "add user" option. This meant that it went through changes through different parts of the MVC. 
 
-returnBook changed because instead of returning bookID and userID like the spec said, it now returns bookID because the borrower is stored on the book. Also we have an option to view all user and ID's and books and book ID's
+**What changed from your D3 plan?**
 
-**Did the model really stand alone?** 
-
-Yes, the model does stand alone because it does not have any scanner or input systems for it. 
-
-**What happened to your unknowns?**
-
-One of the things we didn't know was how to properly implement the MVC so that it all works properly together. By using examples to learn how to implement them properly, we were able to create a decently working MVC. Some of the unknowns we have that we still need to figure out is how to properly catch illegal argument exceptions and empty queue exceptions.
+we originally thought we were fully done, but after continually checking our code, we realized there were some edits to make in order to make it as efficient as we can. Insetad of our original plan of changing one file, we changed various files beacause different parts were connected to each other. Also, we wrote down some of the tests that we were missing from the last deliverable.
 
 **What doesn't work yet?**
 
-Right now reserve stays as reserved forever, meaning it won't get checked out. There is also no proper way that you can get out of a waitlist, whch is somethign we wanted to have in the MVP. We have also not yet added the methods where we can add users and books on the main.
+As far as what we have tested so far, all the main aspects of our code are currently working. The user can add their own user information, they can view a book, they can reserve a book, and the system tells them if that book is available to be reserved or not. 
 
 ## Next Steps
 
-**What is left to finish the MVP?**
+**What is left for the final build?**
 
-Catching a NoSuchElementException properly. Writing the null and empty queue cases properly. Additionally, adding book title lookup option since we originally planned to in the MVP. Splitting files into the model, view, and controller packages so they are kept separate and not all together in one file.
+Something that is left is to make sure that all of our tests are working as properly as possible.
 
-**Your change feature**
+**Which stretch goals are you committing to? And which are you dropping?**
 
-A change feature is where the user would be able to cancel a reservation. It will touch all parts of the MVC. LinkedQueue and Waitlist will have a remove() method and the library will have a cancelReservation method in the model. Additionally, in the Controller, we would need to add a handleCancel method and include new lines to the display in the View.
+The VIP pass is the main stretch goal that we are committing to. Additionally, a stretch goal that we have implemented is full functionality of the library system. Some of the stretch goals that we are dropping is a password system that the librarian can use to have secure access and a time tracker for when a book was checked out by a user and a reminder that accompanies it for the user to return the book.
 
-**Which stretch goals will you attempt?**
+**What will your 3-minute demo show?**
 
-A stretch goal we would attempt is a VIP pass that allows the user to go to the front of the queue based on that pass. 
-
-**What new tests will you need?**
-
-So far, we need tests for the Waitlist class, Library class, and the controller. This might change as we continue developing our code and any of the new functions we add to fulfill stretch goals. 
+It will show us going through the different choice options on the UI. We will walk through how to view a book, adding ourselves as users, and reserving books under our user name. it will also show any kinds of bad inputs that we purposely input, which should then show how the system catches those errors. 
 
 **Who does what?**
 
