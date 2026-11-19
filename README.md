@@ -6,6 +6,9 @@ java Main, first prompts user for intended option, including borrowing a book, r
 
 ## Reflection
 
+**Running tests**
+
+
 **What changed from your specification?**
 
 returnBook changed because instead of returning bookID and userID like the spec said, it now returns bookID because the borrower is stored on the book. Also we have an option to view all user and ID's and books and book ID's

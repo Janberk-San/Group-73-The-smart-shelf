@@ -1,4 +1,4 @@
-public class Main {
+public class Main{
     public static void main(String[] args) {
         Library library = new Library(3);
         library.addBook(new Book(1, "1984", "George Orwell"));
