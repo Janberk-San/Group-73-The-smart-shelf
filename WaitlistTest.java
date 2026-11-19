@@ -2,14 +2,20 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class WaitlistTest {
-    @Test public void servesUsersInFifoOrderEvenIfOneIsVip() {
+    @Test public void servesVipUsersFirstAndPreservesFifoWithinEachPriority() {
         Waitlist line = new Waitlist();
-        User regular = new User("Regular", 1, false, 2);
-        User vip = new User("VIP", 2, true, 2);
-        line.add(regular);
-        line.add(vip);
-        assertSame(regular, line.nextInLine());
-        assertSame(vip, line.nextInLine());
+        User regularFirst = new User("Regular First", 1, false, 2);
+        User vipFirst = new User("VIP First", 2, true, 2);
+        User regularSecond = new User("Regular Second", 3, false, 2);
+        User vipSecond = new User("VIP Second", 4, true, 2);
+        line.add(regularFirst);
+        line.add(vipFirst);
+        line.add(regularSecond);
+        line.add(vipSecond);
+        assertSame(vipFirst, line.nextInLine());
+        assertSame(vipSecond, line.nextInLine());
+        assertSame(regularFirst, line.nextInLine());
+        assertSame(regularSecond, line.nextInLine());
         assertTrue(line.isEmpty());
     }
 

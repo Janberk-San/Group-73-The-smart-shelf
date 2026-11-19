@@ -7,13 +7,9 @@ public class Waitlist
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
-        if (user.isVIP()) 
-        {
+        if (user.isVIP()) {
             vipQueue.enqueue(user);
-        } 
-        
-        else 
-        {
+        } else {
             regularQueue.enqueue(user);
         }
     }
@@ -22,10 +18,7 @@ public class Waitlist
         if (!vipQueue.isEmpty()) {
             return vipQueue.dequeue();
         }
-        if (!regularQueue.isEmpty()) {
-            return regularQueue.dequeue();
-        }
-        throw new EmptyQueueException("Waitlist is empty");
+        return regularQueue.dequeue();
     }
 
     public boolean isEmpty() {

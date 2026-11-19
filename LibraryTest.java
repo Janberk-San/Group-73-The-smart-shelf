@@ -26,14 +26,15 @@ public class LibraryTest {
         assertFalse(alice.hasBook(100));
     }
 
-    @Test public void returnHandsBookToFirstWaitlistedUser() throws Exception {
+    @Test public void returnHandsBookToVipWaitlistedUser() throws Exception {
         library.checkOut(100, 1);
         library.checkOut(100, 2);
         library.checkOut(100, 3);
         library.returnBook(100);
         assertEquals(BookStatus.CHECKED_OUT, book.getStatus());
-        assertEquals(2, book.getBorrowerId());
+        assertEquals(3, book.getBorrowerId());
         assertFalse(alice.hasBook(100));
+        assertTrue(carol.hasBook(100));
         assertTrue(bob.hasBook(100));
     }
 
